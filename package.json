@@ -19,7 +19,7 @@
 		"force": "^0.0.3",
 		"fslightbox-react": "^1.7.6",
 		"he": "^1.2.0",
-		"mysql2": "^3.6.5",
+		"mysql2": "^3.9.8",
 		"next": "14.0.4",
 		"next-auth": "^4.24.5",
 		"next-cloudinary": "^5.20.0",
