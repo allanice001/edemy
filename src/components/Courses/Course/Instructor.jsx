@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 const Instructor = ({ user }) => {
@@ -10,9 +11,15 @@ const Instructor = ({ user }) => {
 					<div className="row align-items-center">
 						<div className="col-lg-4 col-md-4">
 							<div className="advisor-image">
-								<img
-									src="/images/advisor/advisor2.jpg"
+								<Image
+									src={
+										user.image
+											? user.image
+											: "/images/advisor/advisor2.jpg"
+									}
 									alt="image"
+									width={200}
+									height={200}
 								/>
 							</div>
 						</div>
@@ -23,22 +30,15 @@ const Instructor = ({ user }) => {
 								<span className="sub-title">
 									{user.designation}
 								</span>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur
-									adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua.
-									Quis ipsum suspendisse ultrices gravida.
-									Risus commodo viverra maecenas accumsan
-									lacus vel facilisis. Lorem ipsum dolor sit
-									amet, consectetur adipiscing elit, sed do
-									eiusmod tempor incididunt ut labore et
-									dolore magna aliqua.
-								</p>
+								{user.profile && <p>{user.profile.bio}</p>}
 
 								<ul className="social-link">
 									<li>
 										<a
-											href="#"
+											href={
+												user.profile &&
+												user.profile.facebook
+											}
 											className="d-block"
 											target="_blank"
 										>
@@ -47,7 +47,10 @@ const Instructor = ({ user }) => {
 									</li>
 									<li>
 										<a
-											href="#"
+											href={
+												user.profile &&
+												user.profile.twitter
+											}
 											className="d-block"
 											target="_blank"
 										>
@@ -56,16 +59,22 @@ const Instructor = ({ user }) => {
 									</li>
 									<li>
 										<a
-											href="#"
+											href={
+												user.profile &&
+												user.profile.youtube
+											}
 											className="d-block"
 											target="_blank"
 										>
-											<i className="bx bxl-instagram"></i>
+											<i className="bx bxl-youtube"></i>
 										</a>
 									</li>
 									<li>
 										<a
-											href="#"
+											href={
+												user.profile &&
+												user.profile.linkedin
+											}
 											className="d-block"
 											target="_blank"
 										>

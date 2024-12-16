@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Player from "@/components/Learning/Player";
 import Content from "./Content";
 
-const MainContent = ({ course }) => {
+const MainContent = ({ course, reviewsAndAssets }) => {
 	const [videoId, setVideoId] = useState(null);
 	useEffect(() => {
 		setVideoId(course.assets[0].id);
@@ -16,7 +16,11 @@ const MainContent = ({ course }) => {
 					{videoId && <Player videoId={videoId} />}
 
 					<br />
-					<Content {...course} />
+					<Content
+						{...course}
+						assets={reviewsAndAssets.assets}
+						reviews={reviewsAndAssets.reviews}
+					/>
 				</div>
 			</div>
 
@@ -29,6 +33,7 @@ const MainContent = ({ course }) => {
 								<li
 									key={video.id}
 									onClick={() => setVideoId(video.id)}
+									style={{ cursor: "pointer" }}
 								>
 									{video.title}
 									<span className="d-block text-muted fs-13 mt-1">

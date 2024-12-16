@@ -2,8 +2,11 @@
 
 import React, { useState } from "react";
 import CourseOverview from "@/components/Learning/CourseOverview";
+import CourseAsset from "@/components/Learning/CourseAsset";
+import CourseRating from "@/components/Learning/CourseRating";
 
-const Content = ({ description }) => {
+const Content = ({ description, assets, reviews }) => {
+	// console.log(reviews);
 	const [activeTab, setActiveTab] = useState(0);
 
 	const handleTabClick = (index) => {
@@ -18,12 +21,26 @@ const Content = ({ description }) => {
 				>
 					Overview
 				</li>
+				<li
+					onClick={() => handleTabClick(1)}
+					className={` ${activeTab === 1 ? "active" : ""}`}
+				>
+					Assets
+				</li>
+				<li
+					onClick={() => handleTabClick(2)}
+					className={` ${activeTab === 2 ? "active" : ""}`}
+				>
+					Reviews
+				</li>
 			</ul>
 
 			<div>
 				{activeTab === 0 && (
 					<CourseOverview description={description} />
 				)}
+				{activeTab === 1 && <CourseAsset assets={assets} />}
+				{activeTab === 2 && <CourseRating reviews={reviews} />}
 			</div>
 		</>
 	);

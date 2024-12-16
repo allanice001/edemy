@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CourseCard from "../Shared/CourseCard";
 
-const Banner = ({ courses }) => {
+const Banner = ({ courses, currentUser }) => {
 	return (
 		<div className="main-banner">
 			<div className="container-fluid">
@@ -36,6 +36,7 @@ const Banner = ({ courses }) => {
 									<CourseCard
 										key={course.id}
 										{...course}
+										currentUser={currentUser}
 										grid="col-lg-6 col-md-6"
 									/>
 								))}

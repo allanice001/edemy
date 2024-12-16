@@ -24,7 +24,7 @@ export default async function Home() {
 		<>
 			<Banner currentUser={currentUser} />
 			<Features />
-			<TopSellingCourses courses={courses} />
+			<TopSellingCourses courses={courses} currentUser={currentUser} />
 			<DistanceLearning />
 			<Testimonials />
 			<SelfDevelopmentCourse currentUser={currentUser} />

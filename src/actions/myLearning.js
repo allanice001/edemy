@@ -50,3 +50,40 @@ export async function myLearningPlay(params) {
 		console.error("Error fetching counts:", error);
 	}
 }
+export async function courseReviewsAndAssets(params) {
+	const { courseId } = params;
+	const currentUser = await getCurrentUser();
+	if (!currentUser) {
+		redirect("/");
+	}
+
+	try {
+		const reviewsAndAssets = await prisma.course.findUnique({
+			where: { id: parseInt(courseId) },
+			include: {
+				assets: {
+					where: {
+						type: "file",
+					},
+				},
+				reviews: {
+					orderBy: {
+						created_at: "desc",
+					},
+					include: {
+						user: {
+							select: {
+								name: true,
+								image: true,
+							},
+						},
+					},
+				},
+			},
+		});
+
+		return { reviewsAndAssets };
+	} catch (error) {
+		console.error("Error fetching counts:", error);
+	}
+}

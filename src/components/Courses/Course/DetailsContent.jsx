@@ -9,7 +9,7 @@ import Reviews from "./Reviews";
 import Description from "./Description";
 import CoursesDetailsSidebar from "./CoursesDetailsSidebar";
 
-const DetailsContent = ({ course }) => {
+const DetailsContent = ({ currentUser, course }) => {
 	return (
 		<div className="courses-details-area pb-100">
 			<div className="courses-details-image">
@@ -37,7 +37,10 @@ const DetailsContent = ({ course }) => {
 									<Instructor {...course} />
 								</TabPanel>
 								<TabPanel>
-									<Reviews />
+									<Reviews
+										currentUser={currentUser}
+										{...course}
+									/>
 								</TabPanel>
 							</Tabs>
 						</div>

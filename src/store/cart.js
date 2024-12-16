@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import toast from "react-hot-toast";
 
+
 const updateCart = (item, cart) => {
 	const cartItem = { ...item, count: 1 };
 	const itemOnCart = cart.map((item) => item.id).includes(item.id);

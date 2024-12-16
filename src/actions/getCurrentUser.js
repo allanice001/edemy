@@ -20,8 +20,7 @@ export async function getCurrentUser() {
 			},
 			include: {
 				profile: true,
-				// listings: true,
-				// favourites: true,
+				favourites: true,
 			},
 		});
 

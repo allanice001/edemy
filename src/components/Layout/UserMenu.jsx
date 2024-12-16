@@ -8,6 +8,9 @@ import Image from "next/image";
 const UserMenu = ({ currentUser }) => {
 	const isAdmin = currentUser?.role === "ADMIN";
 
+	const dummyImage =
+		"https://res.cloudinary.com/dev-empty/image/upload/v1661245253/wqsnxv0pfdwl2abdakf5.jpg";
+
 	return (
 		<>
 			{!currentUser && (
@@ -24,7 +27,11 @@ const UserMenu = ({ currentUser }) => {
 						<div className="dropdown profile-dropdown">
 							<div className="img ptb-15">
 								<Image
-									src="https://res.cloudinary.com/dev-empty/image/upload/v1661245253/wqsnxv0pfdwl2abdakf5.jpg"
+									src={
+										currentUser.image
+											? currentUser.image
+											: dummyImage
+									}
 									alt="Admin"
 									width={35}
 									height={35}
@@ -40,7 +47,11 @@ const UserMenu = ({ currentUser }) => {
 										<div className="d-flex align-items-center">
 											<div className="img">
 												<Image
-													src="https://res.cloudinary.com/dev-empty/image/upload/v1661245253/wqsnxv0pfdwl2abdakf5.jpg"
+													src={
+														currentUser.image
+															? currentUser.image
+															: dummyImage
+													}
 													alt="Admin"
 													width={35}
 													height={35}

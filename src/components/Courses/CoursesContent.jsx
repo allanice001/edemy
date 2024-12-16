@@ -4,7 +4,7 @@ import React from "react";
 import CourseCard from "../Shared/CourseCard";
 import Filter from "./Filter";
 
-const CoursesContent = ({ courses }) => {
+const CoursesContent = ({ courses, currentUser }) => {
 	return (
 		<div className="courses-area courses-section pt-100 pb-70">
 			<div className="container">
@@ -22,7 +22,11 @@ const CoursesContent = ({ courses }) => {
 
 				<div className="row">
 					{courses.map((course) => (
-						<CourseCard key={course.id} {...course} />
+						<CourseCard
+							key={course.id}
+							{...course}
+							currentUser={currentUser}
+						/>
 					))}
 				</div>
 			</div>

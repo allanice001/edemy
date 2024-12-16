@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import CourseCard from "../Shared/CourseCard";
 
-const PopularCourses = ({ courses }) => {
+const PopularCourses = ({ courses, currentUser }) => {
 	return (
 		<div className="courses-area pt-100 pb-70">
 			<div className="container">
@@ -20,7 +20,11 @@ const PopularCourses = ({ courses }) => {
 
 				<div className="row">
 					{courses.slice(0, 2).map((course) => (
-						<CourseCard key={course.id} {...course} />
+						<CourseCard
+							key={course.id}
+							{...course}
+							currentUser={currentUser}
+						/>
 					))}
 
 					<div className="col-lg-12 col-md-12">

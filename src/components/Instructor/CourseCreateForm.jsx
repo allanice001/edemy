@@ -9,8 +9,6 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import {
-	FieldValues,
-	SubmitHandler,
 	useForm,
 	Controller,
 } from "react-hook-form";

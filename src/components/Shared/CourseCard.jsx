@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { stripHtmlAndTruncate } from "@/utils/stripHtmlAndTruncate";
+import HeartButton from "@/components/HeartButton";
 
 const CourseCard = ({
 	id,
@@ -16,6 +17,7 @@ const CourseCard = ({
 	user,
 	enrolments,
 	grid = "col-md-6 col-lg-4",
+	currentUser,
 }) => {
 	return (
 		<div className={grid}>
@@ -33,9 +35,7 @@ const CourseCard = ({
 						/>
 					</Link>
 
-					<Link href="#" className="fav">
-						<i className="flaticon-heart"></i>
-					</Link>
+					<HeartButton currentUser={currentUser} courseId={id} />
 
 					<div className="price shadow">${regular_price}</div>
 				</div>

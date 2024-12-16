@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import CourseCard from "../Shared/CourseCard";
 
-const TopSellingCourses = ({ courses }) => {
+const TopSellingCourses = ({ courses, currentUser }) => {
 	return (
 		<div className="courses-area ptb-100">
 			<div className="container">
@@ -20,7 +20,11 @@ const TopSellingCourses = ({ courses }) => {
 
 				<div className="row justify-content-center">
 					{courses.map((course) => (
-						<CourseCard key={course.id} {...course} />
+						<CourseCard
+							key={course.id}
+							{...course}
+							currentUser={currentUser}
+						/>
 					))}
 
 					<div className="col-lg-12 col-md-12">

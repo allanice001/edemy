@@ -27,12 +27,12 @@ const RegisterForm = () => {
 		setIsLoading(true);
 		await axios
 			.post("/api/register", data)
-			.then(() => {
+			.then((response) => {
 				toast.success("Registration success! Please login.");
 				reset();
 			})
 			.catch((error) => {
-				toast.error("Something went wrong!");
+				toast.error(error.response.data.message);
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -50,6 +50,7 @@ const RegisterForm = () => {
 					disabled={isLoading}
 					register={register}
 					errors={errors}
+					required
 				/>
 
 				<Input
@@ -59,6 +60,7 @@ const RegisterForm = () => {
 					disabled={isLoading}
 					register={register}
 					errors={errors}
+					required
 				/>
 
 				<Input
@@ -68,6 +70,7 @@ const RegisterForm = () => {
 					disabled={isLoading}
 					register={register}
 					errors={errors}
+					required
 				/>
 
 				<p className="description">

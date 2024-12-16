@@ -2,6 +2,7 @@ import CoursesContent from "@/components/Courses/CoursesContent";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
 import { getCourses } from "@/actions/getCourses";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 
 export const metadata = {
 	title: "Courses | eDemy - React Next.js Education LMS Template",
@@ -9,6 +10,7 @@ export const metadata = {
 
 const page = async ({ searchParams }) => {
 	const { courses } = await getCourses(searchParams);
+	const currentUser = await getCurrentUser();
 	return (
 		<>
 			<PageBanner
@@ -17,7 +19,7 @@ const page = async ({ searchParams }) => {
 				homePageText="Home"
 				activePageText="Courses"
 			/>
-			<CoursesContent courses={courses} />
+			<CoursesContent courses={courses} currentUser={currentUser} />
 		</>
 	);
 };

@@ -7,8 +7,25 @@ export async function getSingleCourse(params) {
 		const course = await prisma.course.findUnique({
 			where: { id: parseInt(courseId) },
 			include: {
-				user: true,
+				user: {
+					include: {
+						profile: true,
+					},
+				},
 				assets: true,
+				reviews: {
+					orderBy: {
+						created_at: "desc",
+					},
+					include: {
+						user: {
+							select: {
+								name: true,
+								image: true,
+							},
+						},
+					},
+				},
 			},
 		});
 

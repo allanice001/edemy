@@ -12,18 +12,20 @@ import PremiumAccess from "@/components/VendorCertificationTraining/PremiumAcces
 import SloganArea from "@/components/VendorCertificationTraining/SloganArea";
 import ViewAllCourses from "@/components/VendorCertificationTraining/ViewAllCourses";
 import { getHomepageCourses } from "@/actions/getCourses";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const page = async () => {
 	const { courses } = await getHomepageCourses();
+	const currentUser = await getCurrentUser();
 	return (
 		<>
 			<Banner />
 			<Partner />
 			<SloganArea />
-			<PopularCourses courses={courses} />
+			<PopularCourses courses={courses} currentUser={currentUser} />
 			<AboutArea />
 			<FunFacts />
-			<PopularCoursesTwo courses={courses} />
+			<PopularCoursesTwo courses={courses} currentUser={currentUser} />
 			<CourseAdvisor />
 			<PremiumAccess />
 			<Testimonials />

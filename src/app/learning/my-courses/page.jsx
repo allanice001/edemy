@@ -1,25 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { myLearning } from "@/actions/myLearning";
+import Links from "../Links";
+import { getCurrentUser } from "@/actions/getCurrentUser";
 
 const Page = async () => {
 	const { enrolments } = await myLearning();
-	console.log(enrolments.length);
+	const currentUser = await getCurrentUser();
 	return (
 		<>
 			<div className="ptb-100">
 				<div className="container">
-					<h2 className="fw-bold mb-4">My Learning</h2>
-					<ul className="nav-style1">
-						<li>
-							<Link href="/learning/my-courses/">
-								All Courses
-							</Link>
-						</li>
-						{/* <li>
-							<Link href="/learning/wishlist/">Wishlist</Link>
-						</li> */}
-					</ul>
+					<Links currentUser={currentUser} />
 
 					<div className="row">
 						{enrolments.length > 0 ? (
