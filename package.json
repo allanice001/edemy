@@ -38,7 +38,7 @@
 		"stripe": "^14.15.0",
 		"sweetalert2-react-content": "^5.0.7",
 		"swiper": "^11.0.5",
-		"zustand": "^4.5.0"
+		"zustand": "^4.5.7"
 	},
 	"devDependencies": {
 		"prisma": "^5.8.1"
